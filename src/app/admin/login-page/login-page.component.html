@@ -1,1 +1,43 @@
-<p>login-page works!</p>
+<form action="" class="jumbotron mx-auto w-50" [formGroup]="form" (ngSubmit)="submit()">
+	<h2 class="text-center">Login</h2>
+
+	<div class="alert alert-danger" *ngIf="auth.error$ | async as error">
+		{{error}}
+	</div>
+
+	<div class="alert alert-info" *ngIf="message">
+		{{message}}
+	</div>
+
+	<div class="form-group">
+		<label for="email">Email:</label>
+
+		<input class="form-control" id="email" type="email" formControlName="email"
+			[ngClass]="{'is-invalid': form.get('email').touched && form.get('email').invalid}">
+
+		<div *ngIf="form.get('email').touched && form.get('email').invalid" class="invalid-feedback">
+			<small *ngIf="form.get('email').errors.required">Email requred</small>
+
+			<small *ngIf="form.get('email').errors.email">Invalid email</small>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="password">Password:</label>
+
+		<input class="form-control is-invalid" id="password" type="password" formControlName="password"
+			[ngClass]="{'is-invalid': form.get('password').touched && form.get('password').invalid}">
+
+		<div *ngIf="form.get('password').touched && form.get('password').invalid" class="invalid-feedback">
+			<small *ngIf="form.get('password').errors.required">Password requred</small>
+
+			<small *ngIf="form.get('password').errors.minlength">
+				Password should have minimum {{form.get('password').errors.minlength.requiredLength}} symbols.
+				Now it has {{form.get('password').errors.minlength.actualLength}}
+				symbol{{form.get('password').errors.minlength.actualLength > 1 ? 's' : ''}}.
+			</small>
+		</div>
+	</div>
+
+	<button class="btn btn-primary" type="submit" [disabled]="form.invalid || submited">Enter</button>
+</form>
