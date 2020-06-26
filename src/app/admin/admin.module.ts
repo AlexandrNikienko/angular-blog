@@ -63,7 +63,6 @@ import { AuthGuard } from './shared/services/auth.guard';
 		RouterModule
 	],
 	providers: [
-		AuthService,
 		AuthGuard
 	]
 })

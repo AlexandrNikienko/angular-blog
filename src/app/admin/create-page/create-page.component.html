@@ -1,1 +1,38 @@
-<p>create-page works!</p>
+<form action="" class="jumbotron mx-auto w-75" [formGroup]="form" (ngSubmit)="submit()">
+	<h2 class="text-center">Create post</h2>
+
+	<div class="form-group">
+		<label for="title">Title:</label>
+
+		<input class="form-control" id="title" type="text" formControlName="title"
+			[ngClass]="{'is-invalid': form.get('title').touched && form.get('title').invalid}">
+
+		<div *ngIf="form.get('title').touched && form.get('title').invalid" class="invalid-feedback">
+			<small *ngIf="form.get('title').errors.required">Title requred</small>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="text">Content:</label>
+
+		<quill-editor formControlName="content"></quill-editor>
+
+		<div *ngIf="form.get('content').touched && form.get('content').invalid" class="invalid-feedback">
+			<small *ngIf="form.get('content').errors.required">Content requred</small>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label for="title">Author:</label>
+
+		<input class="form-control" id="author" type="text" formControlName="author"
+			[ngClass]="{'is-invalid': form.get('author').touched && form.get('author').invalid}">
+
+		<div *ngIf="form.get('author').touched && form.get('author').invalid" class="invalid-feedback">
+			<small *ngIf="form.get('author').errors.required">Author requred</small>
+		</div>
+	</div>
+
+	<button class="btn btn-primary btn-block" type="submit" [disabled]="form.invalid">Create</button>
+</form>

@@ -6,7 +6,7 @@ import { tap, catchError } from 'rxjs/operators';
 import { User, FirebaseAuthResponse } from '../../../shared/interfaces';
 import { environment } from 'src/environments/environment';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class AuthService {
 	public error$: Subject<string> = new Subject<string>();
 
