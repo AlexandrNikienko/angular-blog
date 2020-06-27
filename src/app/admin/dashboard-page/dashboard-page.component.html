@@ -1,20 +1,20 @@
 <ng-container *ngIf="posts.length; else loading">
 	<div class="form-group">
-		<input class="form-control" type="search" placeholder="Search">
+		<input class="form-control" type="search" placeholder="Search by title" [(ngModel)]="searchStr">
 	</div>
 	
 	<table class="table table-striped">
 		<thead>
 			<tr>
 				<th>#</th>
-				<th>Name</th>
+				<th>Title</th>
 				<th>Author</th>
 				<th>Date</th>
 				<th></th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let post of posts; let i = index;">
+			<tr *ngFor="let post of posts | searchPosts:searchStr; let i = index;">
 				<td>{{i + 1}}</td>
 				<td>{{post.title}}</td>
 				<td>{{post.author}}</td>
