@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 	name: 'searchPosts'
 })
 export class SearchPipe implements PipeTransform {
-	transform(posts: Post[], search: ''): Post[] {
+	transform(posts: Post[], search: string): Post[] {
 		if (!search.trim()) {
 			return posts;
 		}
