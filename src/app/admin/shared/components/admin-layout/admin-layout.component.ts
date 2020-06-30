@@ -13,13 +13,12 @@ export class AdminLayoutComponent implements OnInit {
 		private router: Router,
 		public auth: AuthService) { }
 
-	ngOnInit(): void {
+	ngOnInit() {
 	}
 
-	logout(event: Event) {
+	logout(event: Event): void {
 		event.preventDefault();
 		this.auth.logout();
 		this.router.navigate(['/admin', 'login']);
 	}
-
 }

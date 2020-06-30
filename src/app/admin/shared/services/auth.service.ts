@@ -40,7 +40,6 @@ export class AuthService {
 
 	handleError(error: HttpErrorResponse) {
 		const {message} = error.error.error;
-		console.log(message);
 
 		switch(message) {
 			case 'INVALID_EMAIL':
@@ -58,8 +57,6 @@ export class AuthService {
 	}
 
 	private setToken(response: FirebaseAuthResponse | null): void {
-		console.log(response);
-
 		if (response) {
 			const expDate = new Date(new Date().getTime() + +response.expiresIn * 1000);
 			localStorage.setItem('firebaseToken', response.idToken);

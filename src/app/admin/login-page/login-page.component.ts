@@ -56,9 +56,8 @@ export class LoginPageComponent implements OnInit {
 			this.router.navigate(['/admin', 'dashboard']);
 			this.submited = false;
 		},
-			err => {
-				console.log('Error ', err);
-				this.submited = false;
-			})
+		error => {
+			this.submited = false;
+		})
 	}
 }
