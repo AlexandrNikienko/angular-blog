@@ -25,10 +25,6 @@ export class EditPageComponent implements OnInit, OnDestroy {
 	) { }
 
 	ngOnInit() {
-		this.route.params.subscribe((params: Params) => {
-			this.postsService.getById(params.id);
-		})
-
 		this.route.params.pipe(
 			switchMap((params: Params) => {
 				return this.postsService.getById(params['id']);
