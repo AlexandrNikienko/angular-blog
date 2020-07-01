@@ -13,6 +13,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AuthGuard } from './shared/services/auth.guard';
 import { AlertService } from './shared/services/alert.service';
 import { AlertComponent } from './shared/components/alert/alert.component';
+import { ModalComponent } from './shared/components/modal/modal.component';
 
 @NgModule({
 	declarations: [
@@ -22,7 +23,8 @@ import { AlertComponent } from './shared/components/alert/alert.component';
 		CreatePageComponent,
 		EditPageComponent,
 		SearchPipe,
-		AlertComponent
+		AlertComponent,
+		ModalComponent
 	],
 	imports: [
 		CommonModule,
