@@ -1,8 +1,8 @@
 <form action="" class="jumbotron mx-auto w-75" [formGroup]="form" (ngSubmit)="submit()">
 	<h2 class="text-center">Create post</h2>
 
-	<div class="form-group">
-		<label for="title">Title:</label>
+	<div class="mb-3">
+		<label class="form-label" for="title">Title:</label>
 
 		<input class="form-control" id="title" type="text" formControlName="title"
 			[ngClass]="{'is-invalid': form.get('title').touched && form.get('title').invalid}">
@@ -12,8 +12,8 @@
 		</div>
 	</div>
 
-	<div class="form-group">
-		<label for="text">Content:</label>
+	<div class="mb-3">
+		<label class="form-label" for="text">Content:</label>
 
 		<quill-editor formControlName="content"></quill-editor>
 
@@ -23,8 +23,8 @@
 	</div>
 
 
-	<div class="form-group">
-		<label for="title">Author:</label>
+	<div class="mb-3">
+		<label class="form-label" for="title">Author:</label>
 
 		<input class="form-control" id="author" type="text" formControlName="author"
 			[ngClass]="{'is-invalid': form.get('author').touched && form.get('author').invalid}">
