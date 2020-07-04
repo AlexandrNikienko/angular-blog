@@ -38,6 +38,8 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 	}
 
 	remove(id: string): void {
+		//Show confirm modal
+
 		this.deleteSubscription = this.postsServise.remove(id).subscribe(() => {
 			this.posts = this.posts.filter(post => post.id !== id);
 			this.alertService.danger('Post was deleted');
