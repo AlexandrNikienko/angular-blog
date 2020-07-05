@@ -1,6 +1,6 @@
-import { AuthInterceptor } from './shared/auth.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Provider } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AuthInterceptor } from './shared/auth.interceptor';
 
 const INTERCEPTOR_PROVIDER: Provider = {
 	provide: HTTP_INTERCEPTORS,
@@ -31,7 +32,8 @@ const INTERCEPTOR_PROVIDER: Provider = {
     BrowserModule,
 	AppRoutingModule,
 	SharedModule,
-	ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+	ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+	BrowserAnimationsModule
   ],
   providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
