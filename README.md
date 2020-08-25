@@ -1,3 +1,8 @@
+DEMO: https://angular-blog-4890c.web.app
+ADMIN: https://angular-blog-4890c.web.app/admin
+login: user
+password: testpass
+
 # AngularBlog
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
